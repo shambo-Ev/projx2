@@ -3,7 +3,7 @@ name: Deploy Proxy Server
 on:
   push:
     branches:
-      - master  # Change this to your main branch name if it's different
+      - master
 
 jobs:
   deploy:
@@ -18,15 +18,15 @@ jobs:
         with:
           node-version: 14
 
-      - name: Install dependencies
-        run: |
-          cd projx 
-          npm install
+      - name: Set Working Directory
+        run: cd ./projx
         working-directory: ./projx  # Set the working directory to the "projx" subdirectory
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Build and deploy
         run: npm start
-        working-directory: ./projx  # Set the working directory to the "projx" subdirectory
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v4

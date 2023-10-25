@@ -22,8 +22,7 @@ jobs:
           node-version: 14
 
       - name: Install dependencies
-        run: npm install --prefix ./projx
-        working-directory: ./projx
+        run: npm install  # Remove the --prefix option entirely
 
       - name: Debug Workflow (List files and directories)
         run: |
@@ -32,7 +31,7 @@ jobs:
 
       - name: Build and deploy
         run: npm start
-        working-directory: ./projx
+        working-directory: ./projx  # Specify the correct working directory here
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v4

@@ -3,7 +3,7 @@ name: Deploy Proxy Server
 on:
   push:
     branches:
-      - master  # Change this to your main branch name if it's different
+      - main  # Change this to your main branch name if it's different
 
 jobs:
   deploy:
@@ -13,21 +13,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set Working Directory
-        run: cd ./projx
-        shell: bash  # Use the bash shell to run the command
-        working-directory: ./projx  # Set the working directory to the "projx" subdirectory
-
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 14
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --prefix ./projx
+        working-directory: ./projx
 
       - name: Build and deploy
         run: npm start
+        working-directory: ./projx
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v4

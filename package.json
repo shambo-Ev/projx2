@@ -14,5 +14,5 @@
     "axios": "^1.5.1",
     "express": "^4.18.2"
   },
-  "myUrl": "https://www.tradingview.com/chart/i8hOgkM4/?symbol=OANDA%3AXAUUSD" // Add your custom property here
+  "myUrl": "https://www.tradingview.com/chart/i8hOgkM4/?symbol=OANDA%3AXAUUSD"
 }

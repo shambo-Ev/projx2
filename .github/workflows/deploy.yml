@@ -19,13 +19,19 @@ jobs:
           node-version: 14
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install --prefix ./projx
+        working-directory: ./projx
 
       - name: Build and deploy
         run: npm start
+        working-directory: ./projx
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v4
         with:
           branch: gh-pages
-          folder: . # Assuming your server code is in the root of your project
+          folder: projx
+
+	- name: Clear npm cache
+  	run: npm cache clean --force

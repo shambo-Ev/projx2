@@ -33,5 +33,5 @@ jobs:
           branch: gh-pages
           folder: projx
 
-	- name: Clear npm cache
-  	run: npm cache clean --force
+      - name: Clear npm cache  # Corrected indentation here
+        run: npm cache clean --force

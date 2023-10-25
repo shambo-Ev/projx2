@@ -13,6 +13,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Check Node.js version
+        run: node -v
+
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
@@ -21,6 +24,11 @@ jobs:
       - name: Install dependencies
         run: npm install --prefix ./projx
         working-directory: ./projx
+
+      - name: Debug Workflow (List files and directories)
+        run: |
+          pwd
+          ls -la
 
       - name: Build and deploy
         run: npm start

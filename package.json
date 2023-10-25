@@ -2,7 +2,7 @@
   "name": "test2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js", // Add this line to specify the start script
     "test": "echo \"Error: no test specified\" && exit 1"

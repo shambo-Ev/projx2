@@ -3,7 +3,7 @@ name: Deploy Proxy Server
 on:
   push:
     branches:
-      - master
+      - main  # Change this to your main branch name if it's different
 
 jobs:
   deploy:
@@ -20,12 +20,12 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install --prefix ./projx
-        working-directory: ./projx
+          npm install
+        working-directory: ./projx  # Set the working directory to the "projx" subdirectory
 
       - name: Build and deploy
         run: npm start
-        working-directory: ./projx
+        working-directory: ./projx  # Set the working directory to the "projx" subdirectory
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v4
@@ -33,5 +33,5 @@ jobs:
           branch: gh-pages
           folder: projx
 
-      - name: Clear npm cache  # Corrected indentation here
+      - name: Clear npm cache
         run: npm cache clean --force

@@ -20,6 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          cd projx 
           npm install
         working-directory: ./projx  # Set the working directory to the "projx" subdirectory
 
